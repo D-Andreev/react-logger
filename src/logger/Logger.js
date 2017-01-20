@@ -5,6 +5,7 @@ import Console from './Console';
 const METHOD_SEPARATOR = '=';
 const ROW_SEPARATOR = '-';
 const ROW_LENGTH = 20;
+// TODO: Rewrite this
 const LOG_LEVELS = {
     info: {textColor: 'cyan', backgroundColor: 'bgWhite', styles: 'italic'},
     warn: {textColor: 'green', backgroundColor: 'bgWhite', styles: 'underline'},
