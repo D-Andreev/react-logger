@@ -1,7 +1,7 @@
 {
-  "name": "react-logger-mixin",
+  "name": "react-logger-hoc",
   "version": "1.0.0",
-  "description": "A react logger mixin.",
+  "description": "A react logger hoc.",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist"
@@ -13,7 +13,7 @@
   "keywords": [
     "react",
     "logger",
-    "mixin"
+    "hoc"
   ],
   "author": "Dimitar Andreev",
   "license": "MIT",
@@ -26,6 +26,7 @@
     "babel-preset-es2015": "^6.18.0"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.0"
+    "lodash.merge": "^4.6.0",
+    "react": "^15.4.2"
   }
 }
