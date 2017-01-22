@@ -4,7 +4,7 @@
   "description": "A react logger hoc.",
   "main": "index.js",
   "scripts": {
-    "build": "sh scripts/build.sh",
+    "build": "sh scripts/build.sh src dist",
     "clean:build": "sh scripts/clean_build.sh",
     "start:webpack:server": "sh scripts/start_webpack_server.sh",
     "build:example": "sh scripts/build_example.sh",
