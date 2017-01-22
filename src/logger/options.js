@@ -38,5 +38,10 @@ export default {
         level: 'danger',
         props: ['props', 'state', 'nextState'],
         disabled: false
+    },
+    render: {
+        level: 'danger',
+        props: ['props', 'state'],
+        disabled: false
     }
 }
