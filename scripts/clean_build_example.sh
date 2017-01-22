@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
 echo "Cleaning example build..."
+echo 'Target directory: ' $1
 
-rm -rf example/build/*
+rm -rf $1/*
