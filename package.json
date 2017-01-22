@@ -8,7 +8,8 @@
     "clean:build": "sh scripts/clean_build.sh dist",
     "start:webpack:server": "sh scripts/start_webpack_server.sh",
     "build:example": "sh scripts/build_example.sh",
-    "clean:build:example": "sh scripts/clean_build_example.sh example/build"
+    "clean:build:example": "sh scripts/clean_build_example.sh example/build",
+    "clear:dependencies": "sh scripts/clear_dependencies.sh"
   },
   "repository": {
     "type": "git",
