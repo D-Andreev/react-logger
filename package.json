@@ -4,10 +4,11 @@
   "description": "A react logger hoc.",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "sh scripts/build.sh",
     "clean:build": "sh scripts/clean_build.sh",
-    "start:webpack:server": "node_modules/.bin/webpack-dev-server --progress --colors",
-    "build:example": "node_modules/.bin/webpack"
+    "start:webpack:server": "sh scripts/start_webpack_server.sh",
+    "build:example": "sh scripts/build_example.sh",
+    "clean:build:example": "sh scripts/clean_build_example.sh"
   },
   "repository": {
     "type": "git",
