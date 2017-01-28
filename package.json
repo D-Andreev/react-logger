@@ -1,7 +1,7 @@
 {
-  "name": "react-logger-hoc",
+  "name": "react-logger",
   "version": "1.0.0",
-  "description": "A react logger hoc.",
+  "description": "Logger for react lifecycle methods.",
   "main": "index.js",
   "scripts": {
     "build": "sh scripts/build.sh",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/D-Andreev/react-logger-mixin.git"
+    "url": "git+https://github.com/D-Andreev/react-logger.git"
   },
   "keywords": [
     "react",
@@ -26,9 +26,9 @@
   "author": "Dimitar Andreev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/D-Andreev/react-logger-mixin/issues"
+    "url": "https://github.com/D-Andreev/react-logger/issues"
   },
-  "homepage": "https://github.com/D-Andreev/react-logger-mixin#readme",
+  "homepage": "https://github.com/D-Andreev/react-logger#readme",
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",

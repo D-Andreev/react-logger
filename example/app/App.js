@@ -11,6 +11,7 @@ export default class App extends ReactLoggerComponent {
         this.displayName = 'App';
         this.state = {counter: 0};
     }
+
     componentWillUpdate(nextProps, nextState) {
         super.componentWillUpdate(nextProps, nextState);
     }
