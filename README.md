@@ -48,6 +48,7 @@ export default class App extends ReactLoggerComponent {
     
     componentWillUpdate(nextProps, nextState) {
         super.componentWillUpdate(nextProps, nextState);
+        // your code
     }
 
     render() {
