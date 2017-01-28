@@ -10,7 +10,8 @@ Logger for react lifecycle methods.
 To run the example app:
    - Clone the repo.
    - npm install
-   - open `example/index.html`
+   - npm run build:example
+   - Open `example/index.html`.
 
 React Logger exports two abstractions for `React.Component` and `React.PureComponent`.
 ```js
