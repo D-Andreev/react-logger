@@ -22,7 +22,7 @@ export default class Logger {
     }
 
     static _showMemoryUsage() {
-        Console.log(`%c Memory Usage:`, MEMORY_USAGE_STYLES);
+        Console.log('%c Memory Usage:', MEMORY_USAGE_STYLES);
         Console.log({
             jsHeapSizeLimit: Logger._formatBytes(window.performance.memory.jsHeapSizeLimit),
             totalJSHeapSize: Logger._formatBytes(window.performance.memory.totalJSHeapSize),
