@@ -4,11 +4,13 @@
   "description": "A react logger hoc.",
   "main": "index.js",
   "scripts": {
-    "build": "sh scripts/build.sh src dist",
-    "clean:build": "sh scripts/clean_build.sh dist",
+    "build": "sh scripts/build.sh",
+    "watch": "sh scripts/watch.sh",
+    "clean:build": "sh scripts/clean_build.sh",
     "start:webpack:server": "sh scripts/start_webpack_server.sh",
     "build:example": "sh scripts/build_example.sh",
-    "clean:build:example": "sh scripts/clean_build_example.sh example/build",
+    "clean:build:example": "sh scripts/clean_build_example.sh",
+    "watch:example": "sh scripts/watch_example.sh",
     "clear:dependencies": "sh scripts/clear_dependencies.sh"
   },
   "repository": {
@@ -36,6 +38,7 @@
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-preset-stage-1": "^6.22.0",
+    "babel-watch": "^2.0.5",
     "path": "^0.12.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
