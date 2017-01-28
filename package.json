@@ -43,12 +43,10 @@
     "eslint": "^3.14.1",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-react": "^6.9.0",
-    "path": "^0.12.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   }
