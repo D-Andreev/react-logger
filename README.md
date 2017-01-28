@@ -2,9 +2,11 @@
 
 Logger for react lifecycle methods.
 
+
 # Installation
 
 ``npm install react-logger``
+
 
 # Examples
 <img width="944" alt="untitled" src="https://cloud.githubusercontent.com/assets/4354425/22400523/4b2090d4-e5c0-11e6-94e1-3d513420e764.png">
