@@ -1,5 +1,5 @@
 {
-  "name": "react-logger",
+  "name": "react-logger-component",
   "version": "1.0.0",
   "description": "Logger for react lifecycle methods.",
   "main": "index.js",
