@@ -11,7 +11,6 @@ export default class ReactPureLoggerComponent extends React.PureComponent {
     }
 
     componentWillMount() {
-
         this.logger.log(this.displayName, 'componentWillMount');
     }
 

@@ -11,16 +11,22 @@ const MEMORY_USAGE_STYLES = 'background: #43a047; color: white;';
 
 export default class Logger {
 
-    static _convertBToMB(bytes) {
-        return bytes / 1000000;
+    static _formatBytes(bytes, decimals = 2) {
+        if(bytes == 0) return '0 Bytes';
+
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        let k = 1000;
+        let i = Math.floor(Math.log(bytes) / Math.log(k));
+
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i];
     }
 
     static _showMemoryUsage() {
         Console.log(`%c Memory Usage:`, MEMORY_USAGE_STYLES);
         Console.log({
-            jsHeapSizeLimit: Logger._convertBToMB(window.performance.memory.jsHeapSizeLimit) + ' MB',
-            totalJSHeapSize: Logger._convertBToMB(window.performance.memory.totalJSHeapSize) + ' MB',
-            usedJSHeapSize: Logger._convertBToMB(window.performance.memory.usedJSHeapSize) + ' MB'
+            jsHeapSizeLimit: Logger._formatBytes(window.performance.memory.jsHeapSizeLimit),
+            totalJSHeapSize: Logger._formatBytes(window.performance.memory.totalJSHeapSize),
+            usedJSHeapSize: Logger._formatBytes(window.performance.memory.usedJSHeapSize)
         });
     }
 

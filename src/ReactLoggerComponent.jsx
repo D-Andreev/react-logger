@@ -11,7 +11,6 @@ export default class ReactLoggerComponent extends React.Component {
     }
 
     componentWillMount() {
-
         this.logger.log(this.displayName, 'componentWillMount');
     }
 
