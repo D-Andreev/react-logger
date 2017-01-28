@@ -1,0 +1,8 @@
+.app {
+    margin-left: 20rem;
+    margin-top: 5rem;
+}
+
+.app .counter {
+    font-size: 5rem;
+}

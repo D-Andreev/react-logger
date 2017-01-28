@@ -3,7 +3,7 @@
 sourceDir=""
 outputDir=""
 
-echo "Building..."
+echo "Watching..."
 
 if [[ "$1" != "" ]]; then
     sourceDir="$1"
@@ -20,4 +20,4 @@ fi
 echo 'Source directory: ' "$sourceDir"
 echo 'Output directory: ' "$outputDir"
 
-node_modules/.bin/babel "$sourceDir" --out-dir "$outputDir"
+node_modules/.bin/babel "$sourceDir" --out-dir "$outputDir" --watch

@@ -1,47 +1,37 @@
 export default {
     componentWillMount: {
         level: 'info',
-        props: ['props', 'state'],
+        props: [],
         disabled: false
     },
     componentDidMount: {
         level: 'info',
-        props: ['props', 'state'],
+        props: [],
         disabled: false
     },
     componentWillReceiveProps: {
         level: 'warn',
-        props: ['props', 'state', 'nextProps'],
+        props: ['nextProps'],
         disabled: false
     },
     shouldComponentUpdate: {
         level: 'warn',
-        props: ['props', 'state', 'nextProps', 'nextState'],
+        props: ['nextProps', 'nextState'],
         disabled: false
     },
     componentWillUpdate: {
         level: 'danger',
-        props: ['props', 'state', 'nextProps', 'nextState'],
+        props: ['nextProps', 'nextState'],
         disabled: false
     },
     componentDidUpdate: {
-        level: 'danger',
-        props: ['props', 'state', 'prevProps', 'prevState'],
+        level: 'info',
+        props: ['prevProps', 'prevState'],
         disabled: false
     },
     componentWillUnmount: {
         level: 'info',
-        props: ['props', 'state'],
-        disabled: false
-    },
-    setState: {
-        level: 'danger',
-        props: ['props', 'state', 'nextState'],
-        disabled: false
-    },
-    render: {
-        level: 'danger',
-        props: ['props', 'state'],
+        props: [],
         disabled: false
     }
 }

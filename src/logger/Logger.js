@@ -1,48 +1,44 @@
-import * as merge from 'lodash.merge';
-import * as DEFAULT_OPTIONS from './options';
 import Console from './Console';
+import options from './options';
 
-const METHOD_SEPARATOR = '=';
-const ROW_SEPARATOR = '-';
-const ROW_LENGTH = 20;
-// TODO: Rewrite this
 const LOG_LEVELS = {
-    info: {textColor: 'cyan', backgroundColor: 'bgWhite', styles: 'italic'},
-    warn: {textColor: 'green', backgroundColor: 'bgWhite', styles: 'underline'},
-    danger: {textColor: 'red', backgroundColor: 'bgWhite', styles: 'bold'}
+    info: 'background: #039be5; color: white;',
+    warn: 'background: #ff8a65; color: black;',
+    danger: 'background: #e53935; color: white;'
 };
+const MEMORY_USAGE_STYLES = 'background: #43a047; color: white;';
 
 
-class Logger {
+export default class Logger {
 
-    static _setColors(str, {textColor, backgroundColor, styles}) {
-        // TODO: Rewrite this
-        return str[textColor][backgroundColor][styles];
+    static _formatBytes(bytes, decimals = 2) {
+        if(bytes == 0) return '0 Bytes';
+
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        let k = 1000;
+        let i = Math.floor(Math.log(bytes) / Math.log(k));
+
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i];
     }
 
     static _showMemoryUsage() {
-        // TODO: Implement
+        Console.log(`%c Memory Usage:`, MEMORY_USAGE_STYLES);
+        Console.log({
+            jsHeapSizeLimit: Logger._formatBytes(window.performance.memory.jsHeapSizeLimit),
+            totalJSHeapSize: Logger._formatBytes(window.performance.memory.totalJSHeapSize),
+            usedJSHeapSize: Logger._formatBytes(window.performance.memory.usedJSHeapSize)
+        });
     }
 
-    constructor(options = {}) {
-        this.options = merge(options, DEFAULT_OPTIONS);
-        this.methodSeparator = METHOD_SEPARATOR.repeat(ROW_LENGTH);
-        this.rowSeparator = ROW_SEPARATOR.repeat(ROW_LENGTH);
+    constructor() {
+        this.options = options;
     }
 
-    log(componentName = 'Component', methodName = 'method', args = []) {
-        const opts = this.options[methodName];
-        if (!opts || opts.disabled) return;
-
-        Console.log(`${this.methodSeparator}`);
-        Console.log(`${componentName}:${methodName}`);
-        for (let i = 0; i < opts.props.length; i++) {
-            Console.log(`${currentProp}`, args[i]);
-            Console.log(`${this.rowSeparator}`);
-        }
-        Logger._showMemoryUsage();
-        Console.log(`${this.methodSeparator}`);
+    log(componentName = 'Component', methodName = 'method', args = {}) {
+        let {level} = options[methodName];
+        let styles = LOG_LEVELS[level];
+        Console.log(`%c ${componentName}:${methodName}`, styles);
+        if (Object.keys(args).length) Console.log(args);
+        if (methodName === 'componentDidUpdate') Logger._showMemoryUsage();
     }
 }
-
-export default Logger;

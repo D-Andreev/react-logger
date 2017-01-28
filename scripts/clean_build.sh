@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-echo "Cleaning build..."
-echo 'Target directory: ' $1
+dir=""
 
-rm -rf $1/*
+if [[ "$1" != "" ]]; then
+    dir="$1"
+else
+    dir="dist"
+fi
+
+echo "Cleaning build..."
+echo 'Target directory: ' "$dir"
+
+rm -rf "$dir"/*
