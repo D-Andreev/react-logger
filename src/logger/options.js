@@ -34,4 +34,4 @@ export default {
         props: [],
         disabled: false
     }
-}
+};
