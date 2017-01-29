@@ -81,3 +81,20 @@ To run the example app:
    - npm install
    - npm run build:example
    - Open `example/index.html`.
+   
+
+
+[![forthebadge](http://forthebadge.com/badges/powered-by-jeffs-keyboard.svg)](http://forthebadge.com)
+
+[![forthebadge](http://forthebadge.com/badges/compatibility-betamax.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/compatibility-blackberry.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/compatibility-club-penguin.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/compatibility-emacs.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/compatibility-ie-6.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/compatibility-opera-4.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-badges.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-css.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-git.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-html.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-js.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/validated-html2.svg)](http://forthebadge.com)
