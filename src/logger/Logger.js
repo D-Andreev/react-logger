@@ -32,13 +32,20 @@ export default class Logger {
 
     constructor() {
         this.options = options;
+        this.isChrome = !!window.chrome && !!window.chrome.webstore;
+        this.isIE = /*@cc_on!@*/false || !!document.documentMode;
+        this.isEdge = !this.isIE && !!window.StyleMedia;
     }
 
     log(componentName = 'Component', methodName = 'method', args = {}) {
         let {level} = options[methodName];
         let styles = LOG_LEVELS[level];
-        Console.log(`%c ${componentName}:${methodName}`, styles);
+        if (this.isIE || this.isEdge) {
+            Console.log(`${componentName}:${methodName}`);
+        } else {
+            Console.log(`%c ${componentName}:${methodName}`, styles);
+        }
         if (Object.keys(args).length) Console.log(args);
-        if (methodName === 'componentDidUpdate') Logger._showMemoryUsage();
+        if (methodName === 'componentDidUpdate' && this.isChrome) Logger._showMemoryUsage();
     }
 }

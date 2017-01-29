@@ -55,6 +55,9 @@ var Logger = function () {
         _classCallCheck(this, Logger);
 
         this.options = _options2.default;
+        this.isChrome = !!window.chrome && !!window.chrome.webstore;
+        this.isIE = /*@cc_on!@*/false || !!document.documentMode;
+        this.isEdge = !this.isIE && !!window.StyleMedia;
     }
 
     _createClass(Logger, [{
@@ -66,9 +69,13 @@ var Logger = function () {
             var level = _options2.default[methodName].level;
 
             var styles = LOG_LEVELS[level];
-            _Console2.default.log('%c ' + componentName + ':' + methodName, styles);
+            if (this.isIE || this.isEdge) {
+                _Console2.default.log(componentName + ':' + methodName);
+            } else {
+                _Console2.default.log('%c ' + componentName + ':' + methodName, styles);
+            }
             if (Object.keys(args).length) _Console2.default.log(args);
-            if (methodName === 'componentDidUpdate') Logger._showMemoryUsage();
+            if (methodName === 'componentDidUpdate' && this.isChrome) Logger._showMemoryUsage();
         }
     }]);
 
