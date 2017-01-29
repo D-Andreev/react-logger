@@ -7,7 +7,7 @@ Logger for react lifecycle methods.
 
 # Installation
 
-``npm install react-logger``
+``npm install react-logger-component``
 
 
 # Examples
