@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/D-Andreev/react-logger.svg?branch=master)](https://travis-ci.org/D-Andreev/react-logger) [![NPM version](https://badge.fury.io/js/badge-list.svg)](https://www.npmjs.com/package/react-logger-component) [![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](https://github.com/D-Andreev/react-logger) [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/D-Andreev/react-logger/blob/master/LICENSE)
+
 # React Logger
 
 Logger for react lifecycle methods.
