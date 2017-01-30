@@ -18,13 +18,13 @@ export default class App extends ReactLoggerComponent {
     }
 
     render() {
-        let a= 4;
         return <div className="app mdl-layout__container">
             <Counter counter={this.state.counter} />
             <button
                 className="waves-effect waves-light btn"
                 onClick={this._onClick.bind(this)}
             >Click</button>
+            <Time />
         </div>
     }
 
