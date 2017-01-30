@@ -14,6 +14,14 @@ var _options = require('./options');
 
 var _options2 = _interopRequireDefault(_options);
 
+var _HttpClient = require('../lib/HttpClient');
+
+var _HttpClient2 = _interopRequireDefault(_HttpClient);
+
+var _LocalStorage = require('../lib/LocalStorage');
+
+var _LocalStorage2 = _interopRequireDefault(_LocalStorage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26,7 +34,14 @@ var LOG_LEVELS = {
 var MEMORY_USAGE_STYLES = 'background: #43a047; color: white;';
 
 var Logger = function () {
-    _createClass(Logger, null, [{
+    _createClass(Logger, [{
+        key: '_logToServer',
+        value: function _logToServer(componentName, methodName, args) {
+            var data = { componentName: componentName, methodName: methodName, args: args };
+            var uniqueId = _LocalStorage2.default.instance.getUniqueId();
+            this.httpClient.post(null, { url: '/sessions/' + uniqueId + '/logs', data: data });
+        }
+    }], [{
         key: '_formatBytes',
         value: function _formatBytes(bytes) {
             var decimals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
@@ -51,12 +66,15 @@ var Logger = function () {
         }
     }]);
 
-    function Logger() {
+    function Logger(loggerOptions) {
         _classCallCheck(this, Logger);
 
         this.options = _options2.default;
+        this.loggerOptions = loggerOptions;
+        console.log('loggeroptions'.loggerOptions);
+        this.httpClient = new _HttpClient2.default(this.loggerOptions);
         this.isChrome = !!window.chrome && !!window.chrome.webstore;
-        this.isIE = /*@cc_on!@*/false || !!document.documentMode;
+        this.isIE = !!document.documentMode;
         this.isEdge = !this.isIE && !!window.StyleMedia;
     }
 
@@ -74,6 +92,7 @@ var Logger = function () {
             } else {
                 _Console2.default.log('%c ' + componentName + ':' + methodName, styles);
             }
+            this._logToServer(componentName, methodName, args);
             if (Object.keys(args).length) _Console2.default.log(args);
             if (methodName === 'componentDidUpdate' && this.isChrome) Logger._showMemoryUsage();
         }

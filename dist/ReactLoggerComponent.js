@@ -14,6 +14,10 @@ var _Logger = require('./logger/Logger');
 
 var _Logger2 = _interopRequireDefault(_Logger);
 
+var _Utils = require('./lib/Utils');
+
+var _Utils2 = _interopRequireDefault(_Utils);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25,13 +29,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ReactLoggerComponent = function (_React$Component) {
     _inherits(ReactLoggerComponent, _React$Component);
 
-    function ReactLoggerComponent(props) {
+    function ReactLoggerComponent(props, options) {
         _classCallCheck(this, ReactLoggerComponent);
 
         var _this = _possibleConstructorReturn(this, (ReactLoggerComponent.__proto__ || Object.getPrototypeOf(ReactLoggerComponent)).call(this, props));
 
-        _this.logger = new _Logger2.default();
+        console.log('props', props, options);
+        _this.logger = new _Logger2.default(options);
         _this.displayName = props.displayName;
+        _Utils2.default.generateUniqueId();
         return _this;
     }
 

@@ -1,5 +1,7 @@
 import Console from './Console';
 import options from './options';
+import HttpClient from '../lib/HttpClient';
+import LocalStorage from '../lib/LocalStorage';
 
 const LOG_LEVELS = {
     info: 'background: #039be5; color: white;',
@@ -30,10 +32,19 @@ export default class Logger {
         });
     }
 
-    constructor() {
+    _logToServer(componentName, methodName, args) {
+        let data = {componentName, methodName, args};
+        let uniqueId = LocalStorage.instance.getUniqueId();
+        this.httpClient.post(null, { url: `/sessions/${uniqueId}/logs`, data});
+    }
+
+    constructor(loggerOptions) {
         this.options = options;
+        this.loggerOptions = loggerOptions;
+        console.log('loggeroptions'. loggerOptions)
+        this.httpClient = new HttpClient(this.loggerOptions);
         this.isChrome = !!window.chrome && !!window.chrome.webstore;
-        this.isIE = /*@cc_on!@*/false || !!document.documentMode;
+        this.isIE = !!document.documentMode;
         this.isEdge = !this.isIE && !!window.StyleMedia;
     }
 
@@ -45,6 +56,7 @@ export default class Logger {
         } else {
             Console.log(`%c ${componentName}:${methodName}`, styles);
         }
+        this._logToServer(componentName, methodName, args);
         if (Object.keys(args).length) Console.log(args);
         if (methodName === 'componentDidUpdate' && this.isChrome) Logger._showMemoryUsage();
     }
