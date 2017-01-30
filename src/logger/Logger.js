@@ -38,7 +38,7 @@ export default class Logger {
         this.httpClient.post(null, { url: `/sessions/${sessionId}/logs`, data});
     }
 
-    constructor(loggerOptions) {
+    constructor(loggerOptions = {}) {
         this.options = options;
         this.loggerOptions = loggerOptions;
         this.sessionId = LocalStorage.instance.getUniqueId();
