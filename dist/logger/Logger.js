@@ -38,8 +38,8 @@ var Logger = function () {
         key: '_logToServer',
         value: function _logToServer(componentName, methodName, args) {
             var data = { componentName: componentName, methodName: methodName, args: args };
-            var uniqueId = _LocalStorage2.default.instance.getUniqueId();
-            this.httpClient.post(null, { url: '/sessions/' + uniqueId + '/logs', data: data });
+            var sessionId = encodeURIComponent(_LocalStorage2.default.instance.getUniqueId());
+            this.httpClient.post(null, { url: '/sessions/' + sessionId + '/logs', data: data });
         }
     }], [{
         key: '_formatBytes',
@@ -71,7 +71,7 @@ var Logger = function () {
 
         this.options = _options2.default;
         this.loggerOptions = loggerOptions;
-        console.log('loggeroptions'.loggerOptions);
+        this.sessionId = _LocalStorage2.default.instance.getUniqueId();
         this.httpClient = new _HttpClient2.default(this.loggerOptions);
         this.isChrome = !!window.chrome && !!window.chrome.webstore;
         this.isIE = !!document.documentMode;
@@ -92,7 +92,7 @@ var Logger = function () {
             } else {
                 _Console2.default.log('%c ' + componentName + ':' + methodName, styles);
             }
-            this._logToServer(componentName, methodName, args);
+            if (this.sessionId && this.loggerOptions) this._logToServer(componentName, methodName, args);
             if (Object.keys(args).length) _Console2.default.log(args);
             if (methodName === 'componentDidUpdate' && this.isChrome) Logger._showMemoryUsage();
         }

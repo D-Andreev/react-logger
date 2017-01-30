@@ -1,6 +1,7 @@
 import Console from './Console';
 import options from './options';
 import HttpClient from '../lib/HttpClient';
+import LocalStorage from '../lib/LocalStorage';
 
 const LOG_LEVELS = {
     info: 'background: #039be5; color: white;',
@@ -33,13 +34,14 @@ export default class Logger {
 
     _logToServer(componentName, methodName, args) {
         let data = {componentName, methodName, args};
-        let session = encodeURIComponent(document.cookie.replace(/ /g,''));
-        this.httpClient.post(null, { url: `/sessions/${session}/logs`, data});
+        let sessionId = encodeURIComponent(LocalStorage.instance.getUniqueId());
+        this.httpClient.post(null, { url: `/sessions/${sessionId}/logs`, data});
     }
 
     constructor(loggerOptions) {
         this.options = options;
         this.loggerOptions = loggerOptions;
+        this.sessionId = LocalStorage.instance.getUniqueId();
         this.httpClient = new HttpClient(this.loggerOptions);
         this.isChrome = !!window.chrome && !!window.chrome.webstore;
         this.isIE = !!document.documentMode;
@@ -54,7 +56,7 @@ export default class Logger {
         } else {
             Console.log(`%c ${componentName}:${methodName}`, styles);
         }
-        this._logToServer(componentName, methodName, args);
+        if (this.sessionId && this.loggerOptions) this._logToServer(componentName, methodName, args);
         if (Object.keys(args).length) Console.log(args);
         if (methodName === 'componentDidUpdate' && this.isChrome) Logger._showMemoryUsage();
     }

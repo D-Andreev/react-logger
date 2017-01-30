@@ -25,12 +25,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ReactPureLoggerComponent = function (_React$PureComponent) {
     _inherits(ReactPureLoggerComponent, _React$PureComponent);
 
-    function ReactPureLoggerComponent(props) {
+    function ReactPureLoggerComponent(props, options) {
         _classCallCheck(this, ReactPureLoggerComponent);
 
         var _this = _possibleConstructorReturn(this, (ReactPureLoggerComponent.__proto__ || Object.getPrototypeOf(ReactPureLoggerComponent)).call(this, props));
 
-        _this.logger = new _Logger2.default();
+        _this.logger = new _Logger2.default(options);
         _this.displayName = props.displayName;
         return _this;
     }
