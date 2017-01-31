@@ -12,7 +12,8 @@
     "clean:build:example": "sh scripts/clean_build_example.sh",
     "watch:example": "sh scripts/watch_example.sh",
     "clear:dependencies": "sh scripts/clear_dependencies.sh",
-    "lint": "sh scripts/lint.sh"
+    "lint": "sh scripts/lint.sh",
+    "prepublish": "npm run build && npm run build:example"
   },
   "repository": {
     "type": "git",
