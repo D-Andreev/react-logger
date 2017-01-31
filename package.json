@@ -18,6 +18,11 @@
     "type": "git",
     "url": "git+https://github.com/D-Andreev/react-logger.git"
   },
+  "files": [
+    "index.js",
+    "dist",
+    "src"
+  ],
   "keywords": [
     "react",
     "logger"
