@@ -1,6 +1,6 @@
 {
   "name": "react-logger-component",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Logger for react lifecycle methods.",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,18 @@
     "clean:build:example": "sh scripts/clean_build_example.sh",
     "watch:example": "sh scripts/watch_example.sh",
     "clear:dependencies": "sh scripts/clear_dependencies.sh",
-    "lint": "sh scripts/lint.sh"
+    "lint": "sh scripts/lint.sh",
+    "prepublish": "npm run build && npm run build:example"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/D-Andreev/react-logger.git"
   },
+  "files": [
+    "index.js",
+    "dist",
+    "src"
+  ],
   "keywords": [
     "react",
     "logger"

@@ -79,6 +79,7 @@ export default class App extends ReactPureLoggerComponent {
 To run the example app:
    - Clone the repo.
    - npm install
+   - npm run build
    - npm run build:example
    - Open `example/index.html`.
    
