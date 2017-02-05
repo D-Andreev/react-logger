@@ -3,7 +3,7 @@ import superagent from 'superagent';
 
 export default class HttpClient {
 
-    constructor(options) {
+    constructor(options = {url: ''}) {
         this.options = options;
     }
 
