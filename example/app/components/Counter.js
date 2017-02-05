@@ -1,11 +1,12 @@
 import React from 'react';
 import {ReactLoggerComponent} from '../../../index';
+import options from '../options';
 
 
 export default class Counter extends ReactLoggerComponent {
 
     constructor(props) {
-        super(props);
+        super(props, options);
         this.displayName = 'Counter';
     }
     componentWillUpdate(nextProps, nextState) {

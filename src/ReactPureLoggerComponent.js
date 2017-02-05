@@ -4,9 +4,9 @@ import Logger from './logger/Logger';
 
 export default class ReactPureLoggerComponent extends React.PureComponent {
 
-    constructor(props) {
+    constructor(props, options) {
         super(props);
-        this.logger = new Logger();
+        this.logger = new Logger(options);
         this.displayName = props.displayName;
     }
 

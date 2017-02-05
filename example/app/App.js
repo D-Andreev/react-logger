@@ -2,12 +2,13 @@ import React from 'react';
 import {ReactLoggerComponent} from '../../index';
 import Counter from './components/Counter';
 import Time from './components/Time';
+import options from './options';
 
 
 export default class App extends ReactLoggerComponent {
 
     constructor(props) {
-        super(props);
+        super(props, options);
         this.displayName = 'App';
         this.state = {counter: 0};
     }
